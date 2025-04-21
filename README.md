@@ -1,6 +1,49 @@
 # tom-language README
 
-This is the README for your extension "tom-language". After writing up a brief description, we recommend including the following sections.
+This is a VS Code extension for Tom language support in VS Code.
+
+At first, it will only support syntax highlighting, but full language support is the goal.
+
+## About the TOM programming language
+* The TOM language was made for customizing Jissun Boushi
+* Tom is short for Taiwa Object Module
+* It is a very simple language with syntax similar to C++ and Java
+* Module files (*.tom) are created by compiling module source files (*.toms)
+* Module files are excecuted using Jissun Boushi
+
+### Language structure
+* Modules are made up of collections of Classes
+* Classes are made up of Members
+* There are three types of Members: Functions, Variables, and Constants
+* Programming is performed by customizing built in classes and defining new classes
+
+### Reserved words/keywords used in Modules
+* `title "<module name>";`  
+    - This is the name of the module
+    - This is displayed in the menu when excecuting
+    - Without this, the module will not run
+
+* `author "author name";`  
+	- The name of the module author  
+	- This is displayed as a property of the module
+* `native "native module name";`
+	- Specifies a DLL that contains native functions written in C
+	- Not commonly used
+* `attach "filename";`
+	- Used to attach files to the module file
+* `class`
+	- Defines a class
+#### *** `title`, `author`, and `native` can only appear once in a module. (Except for the class name)
+
+### author
+* The author name can be included in the module file
+* The author keyword has no other meaning than to display the author name in the properties window
+* Author names can be freely added but the following best practices are recommended
+    * Choose a simple codename that is not easily confused with others
+    * Do not use copyrighted content
+    * When modifying someone else's program to a great degree, change to your own name
+    * If modifying only one part of someone else's program, include your name in the author property as follows  
+        `author <original author name>, <your name>;`
 
 ## Features
 
