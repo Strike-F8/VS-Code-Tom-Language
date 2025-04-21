@@ -1,0 +1,25 @@
+{
+  "name": "tom-language",
+  "displayName": "Tom Language",
+  "description": "Syntax highlighting for Tom Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "tom",
+      "aliases": ["Tom", "tom"],
+      "extensions": [".toms",".tom"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "tom",
+      "scopeName": "source.tom",
+      "path": "./syntaxes/tom.tmLanguage.json"
+    }]
+  }
+}
