@@ -45,6 +45,13 @@ At first, it will only support syntax highlighting, but full language support is
     * If modifying only one part of someone else's program, include your name in the author property as follows  
         `author <original author name>, <your name>;`
 
+### Comments
+* Comments can be inserted anywhere in the source file
+* Two forward slashes (//) indicates the start of a comment until the end of the line
+* Multiple lines can be commented using /* ... \*/  
+Everything in between /* and \*/ is commented
+Multiple line comments cannot be nested
+
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
