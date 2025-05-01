@@ -3,6 +3,11 @@
 This is a VS Code extension for Tom language support in VS Code.
 
 At first, it will only support syntax highlighting, but full language support is the goal.
+# TODO
+* What does "customize" mean?  
+    - Extend?
+* Glossary
+    - 要素　(Element; shape, line etc.)
 
 ## About the TOM programming language
 * The TOM language was made for customizing Jissun Boushi
@@ -51,6 +56,25 @@ At first, it will only support syntax highlighting, but full language support is
 * Multiple lines can be commented using /* ... \*/  
 Everything in between /* and \*/ is commented
 Multiple line comments cannot be nested
+
+### Class Definition
+```
+<public/private> <final> class new_class_name <extends parent_class>
+```
+* If you omit the parent class name, it becomes an Object class. (When omitted, the extends keyword is also omitted.) TODO: 意味不明
+* Classes not declared public or private are public by default
+* If declared final, a class cannot be customized
+
+#### Actual class definition example
+```
+title "Class Title": // Displayed in the menu during execution. Necessary for execution
+// It's best not to assign a title to classes not meant to be run
+```
+
+#### Runnable classes
+* Runnable classes are derived directly or indirectly from Scenario or Executable classes
+* For functions that specify points and select elements, customize the Scenario class 
+* For functions that can be processed just by displaying dialogs, etc, customize the Executable class 
 
 ## Features
 
