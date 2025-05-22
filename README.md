@@ -6,14 +6,15 @@ At first, it will only support syntax highlighting, but full language support is
 # TODO
 * What does "customize" mean?  
     - Extend?
+    - The meaning of "customize" in various contexts
 * Glossary
     - 要素　(Element; shape, line etc.)
 
 ## About the TOM programming language
-* The TOM language was made for customizing Jissun Boushi
+* The TOM language was made for customizing the CAD software Jissun Boushi (実寸法師)
 * Tom is short for Taiwa Object Module
 * It is a very simple language with syntax similar to C++ and Java
-* Module files (*.tom) are created by compiling module source files (*.toms)
+* Module files (\*.tom) are created by compiling module source files (\*.toms)
 * Module files are excecuted using Jissun Boushi
 
 ### Language structure
@@ -76,6 +77,77 @@ title "Class Title": // Displayed in the menu during execution. Necessary for ex
 * For functions that specify points and select elements, customize the Scenario class 
 * For functions that can be processed just by displaying dialogs, etc, customize the Executable class 
 
+### Member definitions
+* Defining a member constant (Also referred to as a class constant)  
+        ```
+            <public> const <type> <constant_name> = <value>;
+        ```  
+※ Possible types are string, int, and double only  
+※ Constants of type class or array are not possible  
+※ Constants are public by default so the public keyword is usually omitted
+
+#### Member variables
+`<public/private> <static> <type> <variable_name> = <value>;`  
+※ private by default  
+※ static variables are class variables. Non-static variables are instance variables  
+※ variables of the same type can be defined together in one line   
+`<type> var_x = <value>, var_y = <value>, ...;`  
+※ Arrays are initialized within an initialization block defined by curly braces  
+`{<value_1>, <value_2>, ...}`  
+※ The difference between class variables and instance variables will be described later on
+
+#### Member functions
+* Class functions  
+``` <public/private> static <return type> <function name>(parameter1, parameter2, ...) <function>```
+* Instance functions  
+```<public/private> <final/abstract> <return type> <function name> (parameter1, parameter2, ...) <function>```  
+    * Classes set as final cannot be customized later
+    * Member variables of final classes are all final by default
+    * Abstract classes must be customized in order to be used
+
+* Member functions are public by default
+* Functions are written in executable blocks defined by curly braces `{...}`  
+And statements are terminated by semi-colons `;`  
+* Functions that do not contain an executable block do nothing and return `null`  
+This is only useful for defining abstract classes
+* Reserved keywords for native variables also exist
+
+#### Executable blocks  
+* Executable blocks contain local variables and statements
+* Local variables are only valid within the scope of the current block
+* Local variables cannot be defined as `public\private\static`  
+Otherwise, they are defined the same way as member variables  
+
+###### Legend for the following executable statement examples
+`A` ー an expression such as `myFunc(param1, param2)`  
+`B` ー a statement or executable block (`{func1(); func2(); x = 3; etc...}`)  
+`C` ー a constant (In this case used to represent cases in a switch statement)  
+`L` ー A label TODO: ??
+
+```
+A;                  // simple executable statement
+B                   // nested executable block
+                    (In this case B = {some code...})
+if (E) B            // if statement
+if (E) B else B     // if-else statement
+L: switch (A) B     // switch-case statement
+                    (Switch statements must be accompanied by case: and default:)
+    case C:         // case label
+    default:        // default label
+L: for (A; A; A) B  // for-loop
+
+```
+
+#### Expressions and Statements
+* An expression can be the value of a constant, variable, function, etc. or a mathematical operation on any of the former.  
+* Statements do not contain values. Expressions contain values.
+* If a statement consists of just an expression and nothing else, the value of the expression is lost
+* The value of a statement must be assigned using an operator for it to be useful
+* The only expressions that can be used as simple execution statements are simple assignment expressions (=), arithmetic assignment expressions (+=, etc.), increase/decrease expressions (++, --), function call expressions, and 
+object generation expressions, which are simple assignment statements, arithmetic assignment statements, increase/decrease statements, function call statements, and 
+object generation statements, respectively.
+* Although an object generation statement may seem meaningless since the object disappears immediately after execution, 
+at least the constructor is invoked, so it is classified as the same as a function call statement.
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
