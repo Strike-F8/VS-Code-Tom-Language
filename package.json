@@ -2,7 +2,7 @@
   "name": "tom-language",
   "displayName": "Tom Language",
   "description": "Syntax highlighting for Tom Language",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "publisher": "StrikeF8",
   "repository": {
     "type": "git",
@@ -15,16 +15,25 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "tom",
-      "aliases": ["Tom", "tom"],
-      "extensions": [".toms"],
-      "configuration": "./language-configuration/language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "tom",
-      "scopeName": "source.tom",
-      "path": "./syntaxes/tom.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "tom",
+        "aliases": [
+          "Tom",
+          "tom"
+        ],
+        "extensions": [
+          ".toms"
+        ],
+        "configuration": "./language-configuration/language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tom",
+        "scopeName": "source.tom",
+        "path": "./syntaxes/tom.tmLanguage.json"
+      }
+    ]
   }
 }
