@@ -1,32 +1,66 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Tom",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.tom",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.tom",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.tom",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.tom"
+  "scopeName": "source.tom",
+  "name": "Tom",
+  "patterns": [
+    {
+      "name": "comment.line.double-slash.tom",
+      "begin": "//",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.tom"
+        }
+      },
+      "end": "$",
+      "patterns": []
+    },
+    {
+      "name": "comment.block.tom",
+      "begin": "/\\*",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.begin.tom"
+        }
+      },
+      "end": "\\*/",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.end.tom"
+        }
+      },
+      "patterns": []
+    },
+    {
+      "name": "string.quoted.double.tom",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.tom"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.tom"
+        }
+      },
+      "patterns": []
+    },
+    {
+      "name": "keyword.control.tom",
+      "match": "\\b(if|else|switch|case|default|for|while|do|repeat|break|continue|return|forward)\\b"
+    },
+    {
+      "name": "keyword.declaration.tom",
+      "match": "\\b(class|const|static|final|abstract|new|literal|binary|native|attach|author|title|extends|public|private)\\b"
+    },
+    {
+      "name": "constant.language.tom",
+      "match": "\\b(null|true|false)\\b"
+    },
+    {
+      "name": "storage.type.tom",
+      "match": "\\b(int|double|string|var)\\b"
+    }
+  ],
+  "uuid": "3cfb3d55-0a17-4f5f-9610-09a8f49ef4d6"
 }

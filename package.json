@@ -13,8 +13,8 @@
     "languages": [{
       "id": "tom",
       "aliases": ["Tom", "tom"],
-      "extensions": [".toms",".tom"],
-      "configuration": "./language-configuration.json"
+      "extensions": [".toms"],
+      "configuration": "./language-configuration/language-configuration.json"
     }],
     "grammars": [{
       "language": "tom",
