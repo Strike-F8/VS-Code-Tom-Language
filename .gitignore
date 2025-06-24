@@ -1,2 +1,10 @@
-node_modules
+# Node/VScode Extension files
+node_modules/
+out/
+.vscode/
 *.vsix
+
+# Rust project artifacts
+tom-lsp/target/
+tom-lsp/.cargo/
+tom-lsp/Cargo.lock
