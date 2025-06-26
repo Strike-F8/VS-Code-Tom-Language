@@ -43,7 +43,12 @@
           "name": "punctuation.definition.string.end.tom"
         }
       },
-      "patterns": []
+      "patterns": [
+        {
+          "name": "constant.character.escape.tom",
+          "match": "\\\\([\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+        }
+      ]
     },
     {
       "name": "keyword.control.tom",
