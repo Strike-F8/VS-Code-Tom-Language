@@ -56,7 +56,7 @@
     },
     {
       "name": "keyword.declaration.tom",
-      "match": "\\b(class|const|static|final|abstract|new|literal|binary|native|attach|author|title|extends|public|private|this)\\b"
+      "match": "\\b(class|const|static|final|abstract|new|literal|binary|native|attach|author|title|import|extends|public|private|this)\\b"
     },
     {
       "name": "constant.language.tom",
