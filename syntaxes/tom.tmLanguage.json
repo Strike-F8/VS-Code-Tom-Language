@@ -91,7 +91,7 @@
     },
     {
       "name": "storage.type.tom",
-      "match": "\\b(int|double|string|var)\\b"
+      "match": "\\b(int|double|string|var|Vector|void)\\b"
     },
     {
       "name": "constant.numeric.tom",
