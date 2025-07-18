@@ -26,8 +26,35 @@
         "0": {
           "name": "punctuation.definition.comment.end.tom"
         }
-      },
-      "patterns": []
+      }
+    },
+    {
+      "name": "keyword.operator.assignment.tom",
+      "match": "(?:=|\\+=|-=|\\*=|/=|%=|&=|\\|=|\\^=|<<=|>>=)"
+    },
+    {
+      "name": "keyword.operator.arithmetic.tom",
+      "match": "[+\\-*/%]"
+    },
+    {
+      "name": "keyword.operator.bitwise.tom",
+      "match": "[&|^~]|<<|>>"
+    },
+    {
+      "name": "keyword.operator.comparison.tom",
+      "match": "(?:==|!=|<=|>=|<|>|!)"
+    },
+    {
+      "name": "keyword.operator.logical.tom",
+      "match": "\\b(?:and|or|not|is|isnot)\\b"
+    },
+    {
+      "name": "keyword.operator.ternary.tom",
+      "match": "[?:]"
+    },
+    {
+      "name": "punctuation.accessor.dot.tom",
+      "match": "\\."
     },
     {
       "name": "string.quoted.double.tom",
