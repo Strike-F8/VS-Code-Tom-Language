@@ -36,7 +36,18 @@
         "0": {
           "name": "punctuation.definition.comment.end.tom"
         }
-      }
+      },
+      "patterns": [
+        {
+          "name": "keyword.todo.tom",
+          "match": "(?i)TODO:",
+          "captures": {
+            "0": {
+              "name": "keyword.todo.tom"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "keyword.operator.assignment.tom",
