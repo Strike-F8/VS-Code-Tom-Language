@@ -11,7 +11,17 @@
         }
       },
       "end": "$",
-      "patterns": []
+      "patterns": [
+        {
+          "name": "keyword.todo.tom",
+          "match": "(?i)TODO:",
+          "captures": {
+            "0": {
+              "name": "keyword.todo.tom"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "comment.block.tom",
