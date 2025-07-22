@@ -101,7 +101,7 @@
     },
     {
       "name": "storage.type.tom",
-      "match": "\\b(int|double|string|var|Vector|void)\\b"
+      "match": "\\b(int|double|string|var|Vector|void|DocHandle|Scene|Object|Matrix|Plane|Path|Rect|DwgHandle|EmtHandle|Index|Scenario|WorkPlaneInfo|ArrangeBar)\\b"
     },
     {
       "name": "constant.numeric.tom",
