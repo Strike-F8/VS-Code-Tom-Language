@@ -103,6 +103,18 @@
       "match": "\\b(if|else|switch|case|default|for|while|do|repeat|break|continue|return|forward)\\b"
     },
     {
+      "name": "meta.class.definition.tom",
+      "match": "\\b(class)\\s+((?![a-z])[\\p{L}_][\\p{L}\\p{N}_]*)",
+      "captures": {
+        "1": {
+          "name": "storage.type.class.tom"
+        },
+        "2": {
+          "name": "entity.name.type.class.tom"
+        }
+      }
+    },
+    {
       "name": "keyword.declaration.tom",
       "match": "\\b(class|const|static|final|abstract|new|literal|binary|native|attach|author|title|import|extends|public|private)\\b"
     },
