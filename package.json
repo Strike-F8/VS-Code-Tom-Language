@@ -2,7 +2,7 @@
   "name": "tom-language",
   "displayName": "Tom Language",
   "description": "Syntax highlighting for Tom Language",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "publisher": "StrikeF8",
   "repository": {
     "type": "git",
