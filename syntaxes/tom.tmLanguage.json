@@ -99,6 +99,17 @@
       ]
     },
     {
+      "name": "constant.character.tom",
+      "begin": "'",
+      "end": "'",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.string.begin.tom" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.string.end.tom" }
+      }
+    },
+    {
       "name": "keyword.control.tom",
       "match": "\\b(if|else|switch|case|default|for|while|do|repeat|break|continue|return|forward)\\b"
     },
@@ -125,9 +136,26 @@
     {
       "name": "storage.type.tom",
       "patterns": [
-        { "match": "\\b(int|double|string|var|Vector|void|Scene|Object|Matrix|Plane|Path|Rect|Index|Scenario|ArrangeBar|Color)\\b", "name": "storage.type.primitive.tom" },
-        { "match": "\\b[A-Z][a-zA-Z]*(Handle|Scene|Prop|Info)\\b", "name": "entity.name.type.class.tom" },
-        { "match": "\\bKjs[A-Z][A-Za-z]*\\b", "name": "entity.name.type.class.tom" }
+        {
+          "match": "\\b(int|double|string|var|Vector|void|Scene|Object|Matrix|Plane|Path|Rect|Index|Buffer|BmpFile|Point)\\b",
+          "name": "storage.type.primitive.tom"
+        },
+        {
+          "match": "\\b(DropDownList|TabCtrl|CalcBox|Dialog|ArrangeBar|PushBtn|EditCtrl|CtrlList|Arranger|CheckBox)\\b",
+          "name": "entity.name.type.interface.ui.tom"
+        },
+        {
+          "match": "\\b[A-Z][a-zA-Z]*(Handle|Scene|Prop|Info)\\b",
+          "name": "entity.name.type.class.tom"
+        },
+        {
+          "match": "\\b(Kjs|DLG)([\\p{Lu}\\p{Lo}])[\\p{L}\\p{N}_]*\\b",
+          "name": "entity.name.type.class.tom"
+        },
+        {
+          "match": "\\b(Scenario|Color|MacroInputPage|Size|Tree|Static|Icon|ItemMetrics|FieldCtrl)\\b",
+          "name": "entity.name.type.class.tom"
+        }
       ]
     },
     {
@@ -140,11 +168,11 @@
     },
     {
       "name": "support.function.builtin.tom",
-      "match": "\\bsizeof(?=\\s*\\()"
+      "match": "\\b(sizeof|GetItem(|Double|Integer|String)|LoadAttached|BmpFile|SplitText|JoinText|OkCancel)(?=\\s*\\()"
     },
     {
       "name": "support.function.debug.tom",
-      "match": "\\bDebugMessage(?=\\s*\\()\\b"
+      "match": "\\b(DebugMessage|ErrorMessage)(?=\\s*\\()\\b"
     },
     { "include": "#types" },
     {
