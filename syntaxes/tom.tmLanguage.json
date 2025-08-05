@@ -182,8 +182,11 @@
     {
       "name": "invalid.short.tom",
       "match": "\\b[a-z_][a-zA-Z0-9_]{0,2}\\b"
+    },
+    {
+      "name": "keyword.control.preprocessor.tom",
+      "match": "^\\s*#(define|undef|ifdef|ifndef|if|else|elif|endif|include)\\b"
     }
-
       ],
       "uuid": "3cfb3d55-0a17-4f5f-9610-09a8f49ef4d6"
 }
