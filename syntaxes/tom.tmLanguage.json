@@ -126,6 +126,51 @@
       }
     },
     {
+      "name": "meta.function.definition.tom",
+      "begin": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(\\[\\])?\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+      "beginCaptures": {
+        "1": { "name": "storage.type.tom" },
+        "2": { "name": "storage.modifier.array.tom" },
+        "3": { "name": "entity.name.function.tom" }
+      },
+      "end": "\\)",
+      "patterns": [
+        {
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(\\[\\])?\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+          "captures": {
+            "1": { "name": "storage.type.tom" },
+            "2": { "name": "storage.modifier.array.tom" },
+            "3": { "name": "variable.parameter.tom" }
+          }
+        },
+        {
+          "name": "punctuation.definition.optional.tom",
+          "begin": "<",
+          "end": ">",
+          "patterns": [
+            {
+              "match": "[a-zA-Z_][a-zA-Z0-9_]*",
+              "name": "variable.parameter.tom"
+            }
+          ]
+        },
+        {
+          "name": "comment.line.double-slash.tom",
+          "match": "//.*$"
+        }
+      ]
+    },
+    {
+      "name": "meta.variable.declaration.tom",
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(\\[\\])?\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=)",
+      "captures": {
+        "1": { "name": "storage.type.tom" },
+        "2": { "name": "storage.modifier.array.tom" },
+        "3": { "name": "markup.changed.tom" },
+        "4": { "name": "keyword.operator.assignment.tom" }
+      }
+    },
+    {
       "name": "keyword.declaration.tom",
       "match": "\\b(class|const|static|final|abstract|new|literal|binary|native|attach|author|title|import|extends|public|private)\\b"
     },
