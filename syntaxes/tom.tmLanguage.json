@@ -225,8 +225,12 @@
       "match": "\\b(this|super)\\b"
     },
     {
+      "name": "entity.name.function.tom",
+      "match": "\\b([A-Z][A-Za-z0-9_]*)\\s*(?=\\()"
+    },
+    {
       "name": "support.function.builtin.tom",
-      "match": "\\b(sizeof|GetItem(|Double|Integer|String)|LoadAttached|BmpFile|SplitText|JoinText|OkCancel)(?=\\s*\\()"
+      "match": "\\b(sizeof|GetItem(|Double|Integer|String)|LoadAttached|BmpFile|SplitText|JoinText|OkCancel|SetItem|ToItemText)(?=\\s*\\()"
     },
     {
       "name": "support.function.debug.tom",
