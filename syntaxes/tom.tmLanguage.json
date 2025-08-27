@@ -28,7 +28,7 @@
           "patterns": [
             {
               "name": "keyword.todo.tom",
-              "match": "(?i)TODO:"
+              "match": "((?i)TODO|やりのこし)(:|：)"
             }
           ]
         },
@@ -41,8 +41,8 @@
           "patterns": [
             {
               "name": "keyword.todo.tom",
-              "match": "(?i)TODO:"
-            }
+              "match": "((?i)TODO|やりのこし)(:|：)"
+           }
           ]
         }
       ]
