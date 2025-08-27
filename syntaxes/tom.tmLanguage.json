@@ -1,181 +1,151 @@
 {
   "scopeName": "source.tom",
   "name": "Tom",
+  "uuid": "3cfb3d55-0a17-4f5f-9610-09a8f49ef4d6",
   "patterns": [
-    {
-      "name": "comment.line.double-slash.tom",
-      "begin": "//",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.tom"
-        }
-      },
-      "end": "$",
+    { "include": "#comments" },
+    { "include": "#operators" },
+    { "include": "#strings" },
+    { "include": "#keywords" },
+    { "include": "#class-definition" },
+    { "include": "#function-definition" },
+    { "include": "#variable-declaration" },
+    { "include": "#storage-types" },
+    { "include": "#constants" },
+    { "include": "#functions" },
+    { "include": "#variables" },
+    { "include": "#preprocessor" }
+  ],
+  "repository": {
+    "comments": {
       "patterns": [
         {
-          "name": "keyword.todo.tom",
-          "match": "(?i)TODO:",
-          "captures": {
-            "0": {
-              "name": "keyword.todo.tom"
+          "name": "comment.line.double-slash.tom",
+          "begin": "//",
+          "beginCaptures": { "0": { "name": "punctuation.definition.comment.tom" } },
+          "end": "$",
+          "patterns": [
+            {
+              "name": "keyword.todo.tom",
+              "match": "(?i)TODO:"
             }
-          }
-        }
-      ]
-    },
-    {
-      "name": "comment.block.tom",
-      "begin": "/\\*",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.begin.tom"
-        }
-      },
-      "end": "\\*/",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.end.tom"
-        }
-      },
-      "patterns": [
+          ]
+        },
         {
-          "name": "keyword.todo.tom",
-          "match": "(?i)TODO:",
-          "captures": {
-            "0": {
-              "name": "keyword.todo.tom"
+          "name": "comment.block.tom",
+          "begin": "/\\*",
+          "beginCaptures": { "0": { "name": "punctuation.definition.comment.begin.tom" } },
+          "end": "\\*/",
+          "endCaptures": { "0": { "name": "punctuation.definition.comment.end.tom" } },
+          "patterns": [
+            {
+              "name": "keyword.todo.tom",
+              "match": "(?i)TODO:"
             }
-          }
+          ]
         }
       ]
     },
-    {
-      "name": "keyword.operator.assignment.tom",
-      "match": "(?:=|\\+=|-=|\\*=|/=|%=|&=|\\|=|\\^=|<<=|>>=)"
+
+    "operators": {
+      "patterns": [
+        { "name": "keyword.operator.assignment.tom", "match": "(?:=|\\+=|-=|\\*=|/=|%=|&=|\\|=|\\^=|<<=|>>=)" },
+        { "name": "keyword.operator.arithmetic.tom", "match": "[+\\-*/%]" },
+        { "name": "keyword.operator.bitwise.tom", "match": "[&|^~]|<<|>>" },
+        { "name": "keyword.operator.comparison.tom", "match": "(?:==|!=|<=|>=|<|>|!)" },
+        { "name": "keyword.operator.logical.tom", "match": "\\b(?:and|or|not|is|isnot)\\b" },
+        { "name": "keyword.operator.ternary.tom", "match": "[?:]" },
+        { "name": "punctuation.accessor.dot.tom", "match": "\\." }
+      ]
     },
-    {
-      "name": "keyword.operator.arithmetic.tom",
-      "match": "[+\\-*/%]"
-    },
-    {
-      "name": "keyword.operator.bitwise.tom",
-      "match": "[&|^~]|<<|>>"
-    },
-    {
-      "name": "keyword.operator.comparison.tom",
-      "match": "(?:==|!=|<=|>=|<|>|!)"
-    },
-    {
-      "name": "keyword.operator.logical.tom",
-      "match": "\\b(?:and|or|not|is|isnot)\\b"
-    },
-    {
-      "name": "keyword.operator.ternary.tom",
-      "match": "[?:]"
-    },
-    {
-      "name": "punctuation.accessor.dot.tom",
-      "match": "\\."
-    },
-    {
-      "name": "string.quoted.double.tom",
-      "begin": "\"",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.begin.tom"
-        }
-      },
-      "end": "\"",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.string.end.tom"
-        }
-      },
+
+    "strings": {
       "patterns": [
         {
-          "name": "constant.character.escape.tom",
-          "match": "\\\\([\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+          "name": "string.quoted.double.tom",
+          "begin": "\"",
+          "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.tom" } },
+          "end": "\"",
+          "endCaptures": { "0": { "name": "punctuation.definition.string.end.tom" } },
+          "patterns": [
+            {
+              "name": "constant.character.escape.tom",
+              "match": "\\\\([\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+            }
+          ]
+        },
+        {
+          "name": "constant.character.tom",
+          "begin": "'",
+          "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.tom" } },
+          "end": "'",
+          "endCaptures": { "0": { "name": "punctuation.definition.string.end.tom" } }
         }
       ]
     },
-    {
-      "name": "constant.character.tom",
-      "begin": "'",
-      "end": "'",
-      "beginCaptures": {
-        "0": { "name": "punctuation.definition.string.begin.tom" }
-      },
-      "endCaptures": {
-        "0": { "name": "punctuation.definition.string.end.tom" }
-      }
+
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.tom",
+          "match": "\\b(if|else|switch|case|default|for|while|do|repeat|break|continue|return|forward)\\b"
+        },
+        {
+          "name": "keyword.declaration.tom",
+          "match": "\\b(class|const|static|final|abstract|new|literal|binary|native|attach|author|title|import|extends|public|private)\\b"
+        }
+      ]
     },
-    {
-      "name": "keyword.control.tom",
-      "match": "\\b(if|else|switch|case|default|for|while|do|repeat|break|continue|return|forward)\\b"
-    },
-    {
+
+    "class-definition": {
       "name": "meta.class.definition.tom",
       "match": "\\b(class)\\s+((?![a-z])[\\p{L}_][\\p{L}\\p{N}_]*)",
       "captures": {
-        "1": {
-          "name": "storage.type.class.tom"
-        },
-        "2": {
-          "name": "entity.name.type.class.tom"
-        }
+        "1": { "name": "storage.type.class.tom" },
+        "2": { "name": "entity.name.type.class.tom" }
       }
     },
-    {
+
+    "function-definition": {
       "name": "meta.function.definition.tom",
-      "begin": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(\\[\\])?\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+      "begin": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(?:\\s*<[^>]+>)?(\\[\\])*\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
       "beginCaptures": {
         "1": { "name": "storage.type.tom" },
         "2": { "name": "storage.modifier.array.tom" },
         "3": { "name": "entity.name.function.tom" }
       },
       "end": "\\)",
-      "endCaptures": {
-        "0": { "name": "punctuation.section.parameters.end.tom" }
-      },
+      "endCaptures": { "0": { "name": "punctuation.section.parameters.end.tom" } },
       "patterns": [
-        {
-          "name": "meta.parameter.optional.tom",
-          "begin": "<",
-          "beginCaptures": {
-            "0": { "name": "punctuation.definition.optional.begin.tom" }
-          },
-          "end": ">",
-          "endCaptures": {
-            "0": { "name": "punctuation.definition.optional.end.tom" }
-          },
-          "patterns": [
-            {
-              "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(\\[\\])?\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
-              "captures": {
-                "1": { "name": "storage.type.tom" },
-                "2": { "name": "storage.modifier.array.tom" },
-                "3": { "name": "variable.parameter.tom" }
-              }
-            }
-          ]
-        },
-        {
-          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(\\[\\])?\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
-          "captures": {
-            "1": { "name": "storage.type.tom" },
-            "2": { "name": "storage.modifier.array.tom" },
-            "3": { "name": "variable.parameter.tom" }
-          }
-        },
-        {
-          "name": "comment.line.double-slash.tom",
-          "match": "//.*$"
-        }
+        { "include": "#generic-parameter" },
+        { "include": "#parameter" },
+        { "include": "#comments" }
       ]
     },
-    {
+
+    "generic-parameter": {
+      "name": "meta.parameter.generic.tom",
+      "begin": "<",
+      "beginCaptures": { "0": { "name": "punctuation.definition.generic.begin.tom" } },
+      "end": ">",
+      "endCaptures": { "0": { "name": "punctuation.definition.generic.end.tom" } },
+      "patterns": [
+        { "include": "#parameter" }
+      ]
+    },
+
+    "parameter": {
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(?:\\s*<[^>]+>)?(\\[\\])*\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+      "captures": {
+        "1": { "name": "storage.type.parameter.tom" },
+        "2": { "name": "storage.modifier.array.tom" },
+        "3": { "name": "variable.parameter.tom" }
+      }
+    },
+
+    "variable-declaration": {
       "name": "meta.variable.declaration.tom",
-      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(\\[\\])?\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=)",
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(?:\\s*<[^>]+>)?(\\[\\])*\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=)",
       "captures": {
         "1": { "name": "storage.type.tom" },
         "2": { "name": "storage.modifier.array.tom" },
@@ -183,16 +153,8 @@
         "4": { "name": "keyword.operator.assignment.tom" }
       }
     },
-    {
-      "name": "keyword.declaration.tom",
-      "match": "\\b(class|const|static|final|abstract|new|literal|binary|native|attach|author|title|import|extends|public|private)\\b"
-    },
-    {
-      "name": "constant.language.tom",
-      "match": "\\b(null|true|false)\\b"
-    },
-    {
-      "name": "storage.type.tom",
+
+    "storage-types": {
       "patterns": [
         {
           "match": "\\b(int|double|string|var|Vector|void|Scene|Object|Matrix|Plane|Path|Rect|Index|Buffer|BmpFile|Point)\\b",
@@ -216,39 +178,33 @@
         }
       ]
     },
-    {
-      "name": "constant.numeric.tom",
-      "match": "\\b(0x[0-9a-fA-F]+|\\d+\\.\\d*([eE][+-]?\\d+)?|\\d+([eE][+-]?\\d+)?)\\b"
+
+    "constants": {
+      "patterns": [
+        { "name": "constant.language.tom", "match": "\\b(null|true|false)\\b" },
+        { "name": "constant.numeric.tom", "match": "\\b(0x[0-9a-fA-F]+|\\d+\\.\\d*([eE][+-]?\\d+)?|\\d+([eE][+-]?\\d+)?)\\b" }
+      ]
     },
-    {
-      "name": "variable.language.this.tom",
-      "match": "\\b(this|super)\\b"
+
+    "functions": {
+      "patterns": [
+        { "name": "entity.name.function.tom", "match": "\\b([A-Z][A-Za-z0-9_]*)\\s*(?=\\()" },
+        { "name": "support.function.builtin.tom", "match": "\\b(copyof|sizeof|GetItem(|Double|Integer|String)|LoadAttached|BmpFile|SplitText|JoinText|OkCancel|SetItem|ToItemText)(?=\\s*\\()" },
+        { "name": "support.function.debug.tom", "match": "\\b(DebugMessage|ErrorMessage)(?=\\s*\\()\\b" }
+      ]
     },
-    {
-      "name": "entity.name.function.tom",
-      "match": "\\b([A-Z][A-Za-z0-9_]*)\\s*(?=\\()"
+
+    "variables": {
+      "patterns": [
+        { "name": "variable.language.this.tom", "match": "\\b(this|super)\\b" },
+        { "name": "variable.other.readwrite.tom", "match": "\\b[a-z_][a-zA-Z0-9_]{3,10}\\b" },
+        { "name": "invalid.short.tom", "match": "\\b[a-z_][a-zA-Z0-9_]{0,2}\\b" }
+      ]
     },
-    {
-      "name": "support.function.builtin.tom",
-      "match": "\\b(sizeof|GetItem(|Double|Integer|String)|LoadAttached|BmpFile|SplitText|JoinText|OkCancel|SetItem|ToItemText)(?=\\s*\\()"
-    },
-    {
-      "name": "support.function.debug.tom",
-      "match": "\\b(DebugMessage|ErrorMessage)(?=\\s*\\()\\b"
-    },
-    { "include": "#types" },
-    {
-      "name": "variable.other.readwrite.tom",
-      "match": "\\b[a-z_][a-zA-Z0-9_]{3,10}\\b"
-    },
-    {
-      "name": "invalid.short.tom",
-      "match": "\\b[a-z_][a-zA-Z0-9_]{0,2}\\b"
-    },
-    {
+
+    "preprocessor": {
       "name": "keyword.control.preprocessor.tom",
       "match": "^\\s*#(define|undef|ifdef|ifndef|if|else|elif|endif|include)\\b"
     }
-      ],
-      "uuid": "3cfb3d55-0a17-4f5f-9610-09a8f49ef4d6"
+  }
 }
