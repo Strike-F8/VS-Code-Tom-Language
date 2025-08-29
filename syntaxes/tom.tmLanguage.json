@@ -174,7 +174,7 @@
           "name": "entity.name.type.class.tom"
         },
         {
-          "match": "\\b(Scenario|Color|MacroInputPage|Size|Tree|Static|Icon|ItemMetrics|FieldCtrl)\\b",
+          "match": "\\b(Clipboard|Scenario|Color|MacroInputPage|Size|Tree|Static|Icon|ItemMetrics|FieldCtrl)\\b",
           "name": "entity.name.type.class.tom"
         }
       ]
