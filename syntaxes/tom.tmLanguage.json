@@ -6,8 +6,8 @@
     { "include": "#comments" },
     { "include": "#operators" },
     { "include": "#strings" },
-    { "include": "#keywords" },
     { "include": "#class-definition" },
+    { "include": "#keywords" },
     { "include": "#function-definition" },
     { "include": "#variable-declaration" },
     { "include": "#storage-types" },
@@ -93,17 +93,19 @@
         },
         {
           "name": "keyword.declaration.tom",
-          "match": "\\b(class|const|static|final|abstract|new|literal|binary|native|attach|author|title|import|extends|public|private)\\b"
+          "match": "\\b(class|extends|const|static|final|abstract|new|literal|binary|native|attach|author|title|import|public|private)\\b"
         }
       ]
     },
 
     "class-definition": {
       "name": "meta.class.definition.tom",
-      "match": "\\b(class)\\s+((?![a-z])[\\p{L}_][\\p{L}\\p{N}_]*)",
+      "match": "(?<!\\w)(class)\\s+((?![a-z])[\\p{L}_][\\p{L}\\p{N}_]*)(?:\\s+(extends)\\s+((?![a-z])[\\p{L}_][\\p{L}\\p{N}_]*))?",
       "captures": {
         "1": { "name": "storage.type.class.tom" },
-        "2": { "name": "entity.name.type.class.tom" }
+        "2": { "name": "entity.name.type.class.tom" },
+        "3": { "name": "storage.modifier.extends.tom" },
+        "4": { "name": "entity.other.inherited-class.tom" }
       }
     },
 
