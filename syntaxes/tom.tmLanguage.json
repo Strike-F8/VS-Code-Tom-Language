@@ -18,6 +18,17 @@
     { "include": "#preprocessor" }
   ],
   "repository": {
+    "blocks": {
+      "patterns": [
+        { "name": "punctuation.section.block.begin.tom",    "match": "\\{" },
+        { "name": "punctuation.section.block.end.tom",      "match": "\\}" },
+        { "name": "punctuation.section.group.begin.tom",    "match": "\\(" },
+        { "name": "punctuation.section.group.end.tom",      "match": "\\)" },
+        { "name": "punctuation.section.brackets.begin.tom", "match": "\\[" },
+        { "name": "punctuation.section.brackets.end.tom",   "match": "\\]" }
+      ]
+    },
+
     "comments": {
       "patterns": [
         {
