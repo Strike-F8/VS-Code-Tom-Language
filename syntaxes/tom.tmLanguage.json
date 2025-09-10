@@ -8,13 +8,13 @@
     { "include": "#strings" },
     { "include": "#class-definition" },
     { "include": "#keywords" },
-    { "include": "#function-definition" },
     { "include": "#variable-declaration" },
     { "include": "#storage-types" },
     { "include": "#constants" },
     { "include": "#functions" },
     { "include": "#variable-assignment" },
     { "include": "#variables" },
+    { "include": "#function-definition" },
     { "include": "#preprocessor" }
   ],
   "repository": {
@@ -69,7 +69,7 @@
         { "name": "keyword.operator.arithmetic.tom", "match": "[+\\-*/%]" },
         { "name": "keyword.operator.bitwise.tom", "match": "[&|^~]|<<|>>" },
         { "name": "keyword.operator.comparison.tom", "match": "(?:==|!=|<=|>=|<|>|!)" },
-        { "name": "keyword.operator.logical.tom", "match": "\\b(?:and|or|not|is|isnot)\\b" },
+        { "name": "keyword.operator.logical.tom", "match": "(?:\\b(?:is|isnot)\\b|&&|\\|\\||!)" },
         { "name": "keyword.operator.ternary.tom", "match": "[?:]" },
         { "name": "punctuation.accessor.dot.tom", "match": "\\." }
       ]
