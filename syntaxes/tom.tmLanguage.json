@@ -6,6 +6,7 @@
     { "include": "#comments" },
     { "include": "#operators" },
     { "include": "#strings" },
+    { "include": "#function-definition" },
     { "include": "#class-definition" },
     { "include": "#keywords" },
     { "include": "#variable-declaration" },
@@ -14,7 +15,6 @@
     { "include": "#functions" },
     { "include": "#variable-assignment" },
     { "include": "#variables" },
-    { "include": "#function-definition" },
     { "include": "#preprocessor" }
   ],
   "repository": {
@@ -126,7 +126,7 @@
 
     "function-definition": {
       "name": "meta.function.definition.tom",
-      "begin": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(?:\\s*<[^>]+>)?(\\[\\])*\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+      "begin": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(?:\\s*<[^>]+>)?(\\[\\])*\\s+([A-Z_][a-zA-Z0-9_]*)\\s*\\(",
       "beginCaptures": {
         "1": { "name": "storage.type.tom" },
         "2": { "name": "storage.modifier.array.tom" },
