@@ -179,7 +179,7 @@
           "name": "storage.type.primitive.tom"
         },
         {
-          "match": "\\b(DropDownList|TabCtrl|CalcBox|Dialog|ArrangeBar|PushBtn|EditCtrl|CtrlList|Arranger|CheckBox)\\b",
+          "match": "\\b(DropDownList|CalcBox|Dialog|ArrangeBar|PushBtn|CtrlList|Arranger|CheckBox)\\b",
           "name": "entity.name.type.interface.ui.tom"
         },
         {
@@ -191,7 +191,11 @@
           "name": "entity.name.type.class.tom"
         },
         {
-          "match": "\\b(Clipboard|Scenario|Color|MacroInputPage|Size|Tree|Static|Icon|ItemMetrics|FieldCtrl)\\b",
+          "match": "\\b([\\p{Lu}\\p{Lo}])[\\p{L}\\p{N}_]*(Ctrl)\\b",
+          "name": "entity.name.type.interface.ui.tom"
+        },
+        {
+          "match": "\\b(Clipboard|Scenario|Color|MacroInputPage|Size|Tree|Static|Icon|ItemMetrics)\\b",
           "name": "entity.name.type.class.tom"
         }
       ]
