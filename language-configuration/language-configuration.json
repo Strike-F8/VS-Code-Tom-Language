@@ -63,5 +63,25 @@
       "open": "'",
       "close": "'"
     }
+  ],
+  "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\s`~!@#%^&*()=+[\\]{}|;:'\\\",.<>/?]+)",
+  "indentationRules": {
+    "increaseIndentPattern": "^.*(\\{[^}\"']*|\\([^\\)\"']*)$",
+    "decreaseIndentPattern": "^\\s*[}\\)].*$"
+  },
+  "onEnterRules": [
+    {
+      "beforeText": "^.*\\{[^}\"']*$",
+      "afterText": "^\\s*\\}",
+      "action": {
+        "indent": "indentOutdent"
+      }
+    },
+    {
+      "beforeText": "^.*\\{[^}\"']*$",
+      "action": {
+        "indent": "indent"
+      }
+    }
   ]
 }

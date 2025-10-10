@@ -1,150 +1,39 @@
-# tom-language README
+# Tom Language
 
-This is a VS Code extension for Tom language support in VS Code.
+Tom Language is a lightweight Visual Studio Code extension that provides syntax highlighting and editor tooling for Taiwa Object Module (TOM) source files.
 
-At first, it will only support syntax highlighting, but full language support is the goal.
-# TODO
-* What does "customize" mean?  
-    - Extend?
-    - The meaning of "customize" in various contexts
-* Glossary
-    - 要素　(Element; shape, line etc.)
+## Features
+- Rich TextMate grammar for TOM keywords, types, classes, functions, variables, constants, operators, and preprocessor directives.
+- Scoped highlighting inside strings, comments, and generic parameter lists.
+- Comment TODO markers and emphasised assignment targets to surface common review items.
+- Matching bracket, auto-closing pair, and surrounding pair rules tailored for TOM files.
 
-## About the TOM programming language
-* The TOM language was made for customizing the CAD software Jissun Boushi (実寸法師)
-* Tom is short for Taiwa Object Module
-* It is a very simple language with syntax similar to C++ and Java
-* Module files (\*.tom) are created by compiling module source files (\*.toms)
-* Module files are excecuted using Jissun Boushi
+## File Associations
+- `*.toms` (TOM source files)
 
-### Language structure
-* Modules are made up of collections of Classes
-* Classes are made up of Members
-* There are three types of Members: Functions, Variables, and Constants
-* Programming is performed by customizing built in classes and defining new classes
+## Language Overview
+TOM (Taiwa Object Module) is used to customize Jissun Boushi CAD software. The language resembles C-style languages and is organised around classes, members, and executable blocks.
 
-### Reserved words/keywords used in Modules
-* `title "<module name>";`  
-    - This is the name of the module
-    - This is displayed in the menu when excecuting
-    - Without this, the module will not run
+- Modules contain classes, and classes contain member functions, variables, and constants.
+- Key module declarations include `title`, `author`, `native`, and `attach`.
+- Classes may be marked `public`, `private`, `final`, or `abstract` and can derive from base classes with `extends`.
+- Member variables and constants follow C-style declarations, while member functions define access modifiers, storage modifiers, and parameter lists.
+- Comments support single line (`//`) and multi-line (`/* ... */`) forms.
 
-* `author "author name";`  
-	- The name of the module author  
-	- This is displayed as a property of the module
-* `native "native module name";`
-	- Specifies a DLL that contains native functions written in C
-	- Not commonly used
-* `attach "filename";`
-	- Used to attach files to the module file
-* `class`
-	- Defines a class
-#### *** `title`, `author`, and `native` can only appear once in a module. (Except for the class name)
+Understanding these conventions helps when validating the highlighted scopes produced by the grammar.
 
-### author
-* The author name can be included in the module file
-* The author keyword has no other meaning than to display the author name in the properties window
-* Author names can be freely added but the following best practices are recommended
-    * Choose a simple codename that is not easily confused with others
-    * Do not use copyrighted content
-    * When modifying someone else's program to a great degree, change to your own name
-    * If modifying only one part of someone else's program, include your name in the author property as follows  
-        `author <original author name>, <your name>;`
+## Usage
+1. Install the extension from the Visual Studio Code Marketplace (search for **Tom Language**).
+2. Open a `.toms` file. VS Code automatically associates the file with the TOM language ID.
+3. Leverage TOM-aware syntax coloring and highlighting while editing
 
-### Comments
-* Comments can be inserted anywhere in the source file
-* Two forward slashes (//) indicates the start of a comment until the end of the line
-* Multiple lines can be commented using /* ... \*/  
-Everything in between /* and \*/ is commented
-Multiple line comments cannot be nested
+## Development
+This repository contains only declarative contributions (grammar and configuration). If you modify the grammar:
 
-### Class Definition
-```
-<public/private> <final> class new_class_name <extends parent_class>
-```
-* If you omit the parent class name, it becomes an Object class. (When omitted, the extends keyword is also omitted.) TODO: 意味不明
-* Classes not declared public or private are public by default
-* If declared final, a class cannot be customized
+1. Update `syntaxes/tom.tmLanguage.json`.
+2. Reload VS Code with the `Developer: Reload Window` command to test changes.
+3. Bump the version in `package.json` and update `CHANGELOG.md` before publishing.
 
-#### Actual class definition example
-```
-title "Class Title": // Displayed in the menu during execution. Necessary for execution
-// It's best not to assign a title to classes not meant to be run
-```
-
-#### Runnable classes
-* Runnable classes are derived directly or indirectly from Scenario or Executable classes
-* For functions that specify points and select elements, customize the Scenario class 
-* For functions that can be processed just by displaying dialogs, etc, customize the Executable class 
-
-### Member definitions
-* Defining a member constant (Also referred to as a class constant)  
-        ```
-            <public> const <type> <constant_name> = <value>;
-        ```  
-※ Possible types are string, int, and double only  
-※ Constants of type class or array are not possible  
-※ Constants are public by default so the public keyword is usually omitted
-
-#### Member variables
-`<public/private> <static> <type> <variable_name> = <value>;`  
-※ private by default  
-※ static variables are class variables. Non-static variables are instance variables  
-※ variables of the same type can be defined together in one line   
-`<type> var_x = <value>, var_y = <value>, ...;`  
-※ Arrays are initialized within an initialization block defined by curly braces  
-`{<value_1>, <value_2>, ...}`  
-※ The difference between class variables and instance variables will be described later on
-
-#### Member functions
-* Class functions  
-``` <public/private> static <return type> <function name>(parameter1, parameter2, ...) <function>```
-* Instance functions  
-```<public/private> <final/abstract> <return type> <function name> (parameter1, parameter2, ...) <function>```  
-    * Classes set as final cannot be customized later
-    * Member variables of final classes are all final by default
-    * Abstract classes must be customized in order to be used
-
-* Member functions are public by default
-* Functions are written in executable blocks defined by curly braces `{...}`  
-And statements are terminated by semi-colons `;`  
-* Functions that do not contain an executable block do nothing and return `null`  
-This is only useful for defining abstract classes
-* Reserved keywords for native variables also exist
-
-#### Executable blocks  
-* Executable blocks contain local variables and statements
-* Local variables are only valid within the scope of the current block
-* Local variables cannot be defined as `public\private\static`  
-Otherwise, they are defined the same way as member variables  
-
-###### Legend for the following executable statement examples
-`A` ー an expression such as `myFunc(param1, param2)`  
-`B` ー a statement or executable block (`{func1(); func2(); x = 3; etc...}`)  
-`C` ー a constant (In this case used to represent cases in a switch statement)  
-`L` ー A label TODO: ??
-
-```
-A;                  // simple executable statement
-B                   // nested executable block
-                    (In this case B = {some code...})
-if (E) B            // if statement
-if (E) B else B     // if-else statement
-L: switch (A) B     // switch-case statement
-                    (Switch statements must be accompanied by case: and default:)
-    case C:         // case label
-    default:        // default label
-L: for (A; A; A) B  // for-loop
-
-```
-
-#### Expressions and Statements
-* An expression can be the value of a constant, variable, function, etc. or a mathematical operation on any of the former.  
-* Statements do not contain values. Expressions contain values.
-* If a statement consists of just an expression and nothing else, the value of the expression is lost
-* The value of a statement must be assigned using an operator for it to be useful
-* The only expressions that can be used as simple execution statements are simple assignment expressions (=), arithmetic assignment expressions (+=, etc.), increase/decrease expressions (++, --), function call expressions, and 
-object generation expressions, which are simple assignment statements, arithmetic assignment statements, increase/decrease statements, function call statements, and 
-object generation statements, respectively.
-* Although an object generation statement may seem meaningless since the object disappears immediately after execution, 
-at least the constructor is invoked, so it is classified as the same as a function call statement.
+## Resources
+- [CHANGELOG](./CHANGELOG.md) for release history.
+- [vsc-extension-quickstart](./vsc-extension-quickstart.md) for VS Code extension development tips.

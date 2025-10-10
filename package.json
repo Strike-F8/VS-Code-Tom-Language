@@ -4,15 +4,27 @@
   "description": "Syntax highlighting for Tom Language",
   "version": "0.6.7",
   "publisher": "StrikeF8",
+  "author": "StrikeF8",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/Strike_F8/vs-code-tom-language-support.git"
+  },
+  "homepage": "https://gitlab.com/Strike_F8/vs-code-tom-language-support",
+  "bugs": {
+    "url": "https://gitlab.com/Strike_F8/vs-code-tom-language-support/-/issues"
   },
   "engines": {
     "vscode": "^1.99.0"
   },
   "categories": [
     "Programming Languages"
+  ],
+  "keywords": [
+    "tom",
+    "taiwa object module",
+    "cad",
+    "syntax",
+    "highlighting"
   ],
   "contributes": {
     "languages": [
