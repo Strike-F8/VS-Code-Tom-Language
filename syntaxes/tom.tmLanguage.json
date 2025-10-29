@@ -6,6 +6,7 @@
     { "include": "#comments" },
     { "include": "#operators" },
     { "include": "#strings" },
+    { "include": "#blocks" },
     { "include": "#class-definition" },
     { "include": "#keywords" },
     { "include": "#function-definition" },
@@ -81,21 +82,67 @@
           "name": "string.quoted.double.tom",
           "begin": "\"",
           "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.tom" } },
-          "end": "\"",
+          "end": "(?<!\\\\)\"",
           "endCaptures": { "0": { "name": "punctuation.definition.string.end.tom" } },
+          "contentName": "string.quoted.double.tom",
           "patterns": [
             {
               "name": "constant.character.escape.tom",
               "match": "\\\\([\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+            },
+            {
+              "name": "string.quoted.double.tom",
+              "match": "[^\"\\\\\\r\\n]+"
+            },
+            {
+              "name": "invalid.illegal.string.tom",
+              "match": "\\\\."
             }
           ]
         },
         {
           "name": "constant.character.tom",
+          "begin": "'(?=(?:\\\\(?:[\\\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})|[^'\\\\\\r\\n]){1,4}')",
+          "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.tom" } },
+          "end": "(?<!\\\\)'",
+          "endCaptures": { "0": { "name": "punctuation.definition.string.end.tom" } },
+          "contentName": "string.quoted.single.tom",
+          "patterns": [
+            {
+              "name": "constant.character.escape.tom",
+              "match": "\\\\([\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+            },
+            {
+              "name": "constant.character.tom",
+              "match": "[^'\\\\\\r\\n]"
+            },
+            {
+              "name": "invalid.illegal.character.literal.tom",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "invalid.illegal.character.literal.tom",
           "begin": "'",
           "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.tom" } },
-          "end": "'",
-          "endCaptures": { "0": { "name": "punctuation.definition.string.end.tom" } }
+          "end": "(?:$|(?<!\\\\)')",
+          "endCaptures": { "0": { "name": "punctuation.definition.string.end.tom" } },
+          "contentName": "invalid.illegal.character.literal.tom",
+          "patterns": [
+            {
+              "name": "constant.character.escape.tom",
+              "match": "\\\\([\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+            },
+            {
+              "name": "invalid.illegal.character.literal.tom",
+              "match": "[^'\\\\\\r\\n]+"
+            },
+            {
+              "name": "invalid.illegal.character.literal.tom",
+              "match": "\\\\."
+            }
+          ]
         }
       ]
     },
