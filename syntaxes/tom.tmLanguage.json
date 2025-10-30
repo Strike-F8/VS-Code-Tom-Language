@@ -82,8 +82,9 @@
           "name": "string.quoted.double.tom",
           "begin": "\"",
           "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.tom" } },
-          "end": "(?<!\\\\)\"",
+          "end": "\"",
           "endCaptures": { "0": { "name": "punctuation.definition.string.end.tom" } },
+          "applyEndPatternLast": true,
           "contentName": "string.quoted.double.tom",
           "patterns": [
             {
@@ -104,8 +105,9 @@
           "name": "constant.character.tom",
           "begin": "'(?=(?:\\\\(?:[\\\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})|[^'\\\\\\r\\n]){1,4}')",
           "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.tom" } },
-          "end": "(?<!\\\\)'",
+          "end": "'",
           "endCaptures": { "0": { "name": "punctuation.definition.string.end.tom" } },
+          "applyEndPatternLast": true,
           "contentName": "string.quoted.single.tom",
           "patterns": [
             {
@@ -126,8 +128,9 @@
           "name": "invalid.illegal.character.literal.tom",
           "begin": "'",
           "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.tom" } },
-          "end": "(?:$|(?<!\\\\)')",
+          "end": "(?:$|')",
           "endCaptures": { "0": { "name": "punctuation.definition.string.end.tom" } },
+          "applyEndPatternLast": true,
           "contentName": "invalid.illegal.character.literal.tom",
           "patterns": [
             {
