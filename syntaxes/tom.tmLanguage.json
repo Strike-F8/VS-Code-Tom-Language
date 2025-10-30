@@ -79,8 +79,30 @@
     "strings": {
       "patterns": [
         {
+          "name": "invalid.illegal.string.tom",
+          "begin": "\"(?=(?:[^\"\\\\\\r\\n]|\\\\.)*\"\\s*[^\\s,.;:+\\-*/%<>=!?&|^~)\\]\\}])",
+          "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.tom" } },
+          "end": "(?=\"\\s*[^\\s,.;:+\\-*/%<>=!?&|^~)\\]\\}])",
+          "applyEndPatternLast": true,
+          "contentName": "invalid.illegal.string.tom",
+          "patterns": [
+            {
+              "name": "constant.character.escape.tom",
+              "match": "\\\\([\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+            },
+            {
+              "name": "invalid.illegal.string.tom",
+              "match": "[^\"\\\\\\r\\n]+"
+            },
+            {
+              "name": "invalid.illegal.string.tom",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
           "name": "string.quoted.double.tom",
-          "begin": "\"(?=(?:[^\"\\\\\\r\\n]|\\\\.)*\")",
+          "begin": "\"(?=(?:[^\"\\\\\\r\\n]|\\\\.)*\"\\s*(?=$|[,.;:+\\-*/%<>=!?&|^~)\\]\\}]))",
           "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.tom" } },
           "end": "\"",
           "endCaptures": { "0": { "name": "punctuation.definition.string.end.tom" } },
