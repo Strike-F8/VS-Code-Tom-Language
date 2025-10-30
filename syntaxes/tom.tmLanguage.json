@@ -6,6 +6,7 @@
     { "include": "#comments" },
     { "include": "#operators" },
     { "include": "#strings" },
+    { "include": "#omitted-parameter" },
     { "include": "#blocks" },
     { "include": "#class-definition" },
     { "include": "#keywords" },
@@ -191,6 +192,15 @@
               "match": "\\\\."
             }
           ]
+        }
+      ]
+    },
+
+    "omitted-parameter": {
+      "patterns": [
+        {
+          "name": "markup.changed.tom",
+          "match": "(?<=,)\\s*,"
         }
       ]
     },
