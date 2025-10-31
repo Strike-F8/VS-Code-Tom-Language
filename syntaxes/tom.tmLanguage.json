@@ -115,8 +115,12 @@
               "match": "\\\\([\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
             },
             {
+              "name": "constant.other.placeholder.tom",
+              "match": "%(s|d|f)"
+            },
+            {
               "name": "string.quoted.double.tom",
-              "match": "[^\"\\\\\\r\\n]+"
+              "match": "[^\"\\\\\\r\\n%]+"
             },
             {
               "name": "invalid.illegal.string.tom",
