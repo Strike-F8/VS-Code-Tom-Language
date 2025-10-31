@@ -58,8 +58,12 @@
           "patterns": [
             {
               "name": "keyword.todo.tom",
-              "match": "((?i)TODO|やりのこし)(:|：)"
-           }
+              "match": "((?i)TODO|(?i)MEMO|(?i)FIXME|(?i)NOTE|やりのこし|メモ|XXX)(:|：)"
+            },
+            {
+              "name": "keyword.todo.tom",
+              "match": "(\\[\\]|\\[(X|x)\\])"
+            }
           ]
         }
       ]
