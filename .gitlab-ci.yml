@@ -1,0 +1,36 @@
+stages:
+  - sync
+
+sync_visualstudio_grammar:
+  stage: sync
+  image: alpine:3.19
+  variables:
+    GIT_STRATEGY: fetch
+    TARGET_BRANCH: "${VISUAL_STUDIO_TARGET_BRANCH:-main}"
+  rules:
+    - changes:
+        - syntaxes/tom.tmLanguage.json
+      when: on_success
+    - when: never
+  before_script:
+    - apk add --no-cache git openssh-client
+    - >
+      if [ -z "${VISUAL_STUDIO_REPO_URL}" ]; then
+        echo "VISUAL_STUDIO_REPO_URL must be set to a Git URL with push access to the Tom-VisualStudio repository." >&2
+        exit 1
+      fi
+    - git config --global user.email "${GITLAB_USER_EMAIL:-tom-vs-sync@gitlab}"
+    - git config --global user.name "${GITLAB_USER_NAME:-Tom VS Sync Bot}"
+  script:
+    - git clone --depth 1 --branch "${TARGET_BRANCH}" "${VISUAL_STUDIO_REPO_URL}" ../Tom-VisualStudio-sync
+    - cp syntaxes/tom.tmLanguage.json ../Tom-VisualStudio-sync/src/Grammars/Tom.tmLanguage.json
+    - cd ../Tom-VisualStudio-sync
+    - git add src/Grammars/Tom.tmLanguage.json
+    - |
+      if git diff --cached --quiet; then
+        echo "No grammar updates to push."
+        exit 0
+      fi
+    - COMMIT_MESSAGE="Sync TextMate grammar from ${CI_PROJECT_PATH}@${CI_COMMIT_SHORT_SHA}"
+    - git commit -m "${COMMIT_MESSAGE}"
+    - git push origin HEAD:"${TARGET_BRANCH}"
