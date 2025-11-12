@@ -248,6 +248,20 @@
       "end": "\\)",
       "endCaptures": { "0": { "name": "punctuation.section.parameters.end.tom" } },
       "patterns": [
+        { "include": "#optional-parameter" },
+        { "include": "#generic-parameter" },
+        { "include": "#parameter" },
+        { "include": "#comments" }
+      ]
+    },
+
+    "optional-parameter": {
+      "name": "meta.parameter.optional.tom markup.italic",
+      "begin": "(?:(?<=\\()|(?<=,))\\s*(<)",
+      "beginCaptures": { "1": { "name": "punctuation.definition.parameter.optional.begin.tom" } },
+      "end": "(>)",
+      "endCaptures": { "1": { "name": "punctuation.definition.parameter.optional.end.tom" } },
+      "patterns": [
         { "include": "#generic-parameter" },
         { "include": "#parameter" },
         { "include": "#comments" }
