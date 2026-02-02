@@ -120,7 +120,7 @@
             },
             {
               "name": "constant.other.placeholder.tom",
-              "match": "%(s|d|f|g)"
+              "match": "%(s|d|f|g|c)"
             },
             {
               "name": "string.quoted.double.tom",
