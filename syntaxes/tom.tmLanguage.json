@@ -239,7 +239,7 @@
 
     "function-definition": {
       "name": "meta.function.definition.tom",
-      "begin": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(?:\\s*<[^>]+>)?(\\[\\])*\\s+([A-Z_][a-zA-Z0-9_]*)\\s*\\(",
+      "begin": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(\\[\\])*\\s+([A-Z_][a-zA-Z0-9_]*)\\s*\\(",
       "beginCaptures": {
         "1": { "name": "storage.type.tom" },
         "2": { "name": "storage.modifier.array.tom" },
@@ -249,7 +249,6 @@
       "endCaptures": { "0": { "name": "punctuation.section.parameters.end.tom" } },
       "patterns": [
         { "include": "#optional-parameter" },
-        { "include": "#generic-parameter" },
         { "include": "#parameter" },
         { "include": "#comments" }
       ]
@@ -262,25 +261,13 @@
       "end": "(>)",
       "endCaptures": { "1": { "name": "punctuation.definition.parameter.optional.end.tom" } },
       "patterns": [
-        { "include": "#generic-parameter" },
         { "include": "#parameter" },
         { "include": "#comments" }
       ]
     },
 
-    "generic-parameter": {
-      "name": "meta.parameter.generic.tom",
-      "begin": "<",
-      "beginCaptures": { "0": { "name": "punctuation.definition.generic.begin.tom" } },
-      "end": ">",
-      "endCaptures": { "0": { "name": "punctuation.definition.generic.end.tom" } },
-      "patterns": [
-        { "include": "#parameter" }
-      ]
-    },
-
     "parameter": {
-      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(?:\\s*<[^>]+>)?(\\[\\])*\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(\\[\\])*\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
       "captures": {
         "1": { "name": "storage.type.parameter.tom" },
         "2": { "name": "storage.modifier.array.tom" },
@@ -290,7 +277,7 @@
 
     "variable-declaration": {
       "name": "meta.variable.declaration.tom",
-      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(?:\\s*<[^>]+>)?(\\[\\])*\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=)",
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)(\\[\\])*\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=)",
       "captures": {
         "1": { "name": "storage.type.tom" },
         "2": { "name": "storage.modifier.array.tom" },

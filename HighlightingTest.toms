@@ -1,0 +1,112 @@
+// -----------------------------
+// Comments + TODO markers
+// -----------------------------
+// TODO: do this
+// [X] done
+/* MEMO: block note
+   [] pending
+*/
+
+// -----------------------------
+// Preprocessor
+// -----------------------------
+#define FOO 1
+#ifdef FOO
+#include "file.tdf"
+#endif
+
+// -----------------------------
+// Class definition + extends
+// -----------------------------
+class MyScene extends BaseScene {
+  // -----------------------------
+  // Blocks / groups / brackets punctuation
+  // -----------------------------
+  Vector pts = [ Point(0, 0), Point(1, 2) ];
+  Rect   r   = Rect(0, 0, 10, 20);
+
+  // -----------------------------
+  // Keywords (control + declaration)
+  // -----------------------------
+  public static final int Count = 3;
+
+  // -----------------------------
+  // Constants: language + numeric
+  // -----------------------------
+  var  nothing = null;
+  var  ok      = true;
+  var  no      = false;
+
+  int  dec  = 1000;     // decimal int
+  int  hex  = 0x1000;   // hex int
+  int  oct  = 01000;    // octal int
+  double f1 = 1.;       // float form
+  double f2 = .5;       // float form
+  double f3 = 0100.0;   // float form
+
+  // -----------------------------
+  // Variable declaration (type name =)
+  // and variable-assignment (name before =, +=, etc.)
+  // -----------------------------
+  int    total = 0;
+  string msg   = "hi";
+  total += 1;
+
+  // -----------------------------
+  // Strings: valid, escapes, placeholders, invalid
+  // -----------------------------
+  string s1 = "plain";
+  string s2 = "escape: \\n \t \u0041";
+  string s3 = "format %s %d %f";
+  string bad = "unterminated
+
+  // character literals
+  int ch1 = 'A';
+  int ch2 = '\n';
+  int badch = 'ab';
+
+  // -----------------------------
+  // Omitted parameter (`, ,` pattern)
+  // -----------------------------
+  SetItem(1, , 3);
+
+  // -----------------------------
+  // Functions (calls): builtin + debug + general Capitalized call
+  // -----------------------------
+  DebugMessage("dbg");
+  ErrorMessage("err");
+  copyof(pts);
+  sizeof(r);
+  GetItemString(1);
+  JoinText("a", "b");
+  OkCancel("title", "body");
+
+  // -----------------------------
+  // Variables scopes: this/super, readwrite, invalid.short
+  // (readwrite must be 4–11 chars per your regex; shorter becomes invalid.short)
+  // -----------------------------
+  this.DoThing();
+  super.DoThing();
+  abcd = 1;     // variable.other.readwrite.tom (4 chars)
+  abc  = 2;     // invalid.short.tom (3 chars)
+
+  // -----------------------------
+  // Operators: assignment, arithmetic, bitwise, comparison, logical, ternary, dot
+  // -----------------------------
+  int aaaa = 1;
+  int bbbb = 2;
+  int cccc = (aaaa + bbbb) * 3 - 4 / 2 % 2;
+  int dddd = (aaaa & bbbb) | (aaaa ^ bbbb) << 1 >> 1;
+  bool eeee = (aaaa == bbbb) || (aaaa != bbbb) && !(aaaa < bbbb) && (aaaa >= bbbb);
+  var  ffff = eeee ? 1 : 0;
+  var  gggg = this.value;   // dot accessor
+
+  // -----------------------------
+  // Function definition pattern in your grammar:
+  //   <type> ([])* <NameStartingWithCapital>(...)
+  // Includes optional/generic parameter constructs as you defined them.
+  // -----------------------------
+  int[] MakeList(<int size>, Vector items, <string label>) (
+    // parameters are highlighted by your parameter rule
+  )
+}
