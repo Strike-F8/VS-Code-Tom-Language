@@ -1,12 +1,11 @@
 # Tom Language
 
-Tom Language is a lightweight Visual Studio Code extension that provides syntax highlighting and editor tooling for Taiwa Object Module (TOM) source files.
+Tom Language is a lightweight Visual Studio Code extension that provides syntax highlighting for Taiwa Object Module (TOM) source files.
 
 ## Features
 - Rich TextMate grammar for TOM keywords, types, classes, functions, variables, constants, operators, and preprocessor directives.
 - Scoped highlighting inside strings, comments, and generic parameter lists.
-- Comment TODO markers and emphasised assignment targets to surface common review items.
-- Matching bracket, auto-closing pair, and surrounding pair rules tailored for TOM files.
+- Comment TODO markers and emphasized assignment targets to surface common review items.
 
 ## File Associations
 - `*.toms` (TOM source files)
