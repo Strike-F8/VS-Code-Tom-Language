@@ -333,12 +333,12 @@
         { "name": "constant.language.tom", "match": "\\b(null|true|false)\\b" },
         { "name": "invalid.constant.tom", "match": "\\b([A-Z_]{2,})(?:_[A-Z0-9_]+)*\\b" },
 
-        { "name": "constant.numeric.integer.hex.tom", "match": "\\b0x[0-9A-Fa-f]+\\b" },
+        { "name": "support.constant.numeric.integer.hex.tom", "match": "\\b0x[0-9A-Fa-f]+\\b" },
         {
           "name": "constant.numeric.float.tom",
           "match": "(?:\\b\\d+\\.\\d+\\b|\\b\\d+\\.(?=\\s|$|[,.;:\\+\\-*/%<>=!?&|^~)\\]\\}])|(?<![A-Za-z0-9_\\]\\)])\\.\\d+\\b)"
         },
-        { "name": "constant.numeric.integer.octal.tom", "match": "\\b0[0-7]+\\b" },
+        { "name": "variable.other.constant.numeric.integer.octal.tom", "match": "\\b0[0-7]+\\b" },
         { "name": "constant.numeric.integer.decimal.tom", "match": "\\b(?:0|[1-9]\\d*)\\b" }
       ]
     },
