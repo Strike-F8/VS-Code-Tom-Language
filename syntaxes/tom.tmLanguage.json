@@ -119,8 +119,12 @@
               "match": "\\\\([\"'\\\\ntrbfu]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
             },
             {
-              "name": "constant.other.placeholder.tom",
-              "match": "%(s|d|f|g|c)"
+              "name": "constant.other.format-specifier.printf.tom",
+              "match": "%%|%(?:[#0 +\\-]*\\d*(?:\\.\\d+)?(?:h|l|ll)?[diuoxXfFeEgGaAcCs])"
+            },
+            {
+              "name": "invalid.illegal.format-specifier.printf.tom",
+              "match": "%(?:[#0 +\\-]*\\d*(?:\\.\\d+)?(?:h|l|ll)?)(?![diuoxXfFeEgGaAcCs%])[A-Za-z]"
             },
             {
               "name": "string.quoted.double.tom",
