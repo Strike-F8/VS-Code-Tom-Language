@@ -7,11 +7,11 @@
   "author": "StrikeF8",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/Strike_F8/vs-code-tom-language-support.git"
+    "url": "https://gitlab.com/Strike_F8/tom-vs-code"
   },
-  "homepage": "https://gitlab.com/Strike_F8/vs-code-tom-language-support",
+  "homepage": "https://gitlab.com/Strike_F8/tom-vs-code",
   "bugs": {
-    "url": "https://gitlab.com/Strike_F8/vs-code-tom-language-support/-/issues"
+    "url": "https://gitlab.com/Strike_F8/tom-vs-code/-/issues"
   },
   "engines": {
     "vscode": "^1.99.0"
