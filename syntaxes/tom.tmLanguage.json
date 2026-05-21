@@ -224,8 +224,24 @@
           "match": "\\b(if|else|switch|case|default|for|while|do|repeat|break|continue|return|forward)\\b"
         },
         {
-          "name": "keyword.declaration.tom",
-          "match": "\\b(class|extends|const|static|final|abstract|new|literal|binary|native|attach|author|title|import|public|private)\\b"
+          "name": "storage.type.tom",
+          "match": "\\b(class|extends)\\b"
+        },
+        {
+          "name": "storage.modifier.tom",
+          "match": "\\b(const|static|final|abstract|native|public|private)\\b"
+        },
+        {
+          "name": "keyword.operator.new.tom",
+          "match": "\\bnew\\b"
+        },
+        {
+          "name": "keyword.other.tom",
+          "match": "\\b(literal|binary|attach|author|title|import)\\b"
+        },
+        {
+          "name": "support.function.tom",
+          "match": "(?<=\\battach\\s)compact\\b"
         }
       ]
     },
